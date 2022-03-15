@@ -1,0 +1,15 @@
+{
+  "name": "etsy",
+  "version": "1.0.0",
+  "description": "this is a freelance project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx tailwindcss -i ./main.css -o ./public/main.css --watch"
+  },
+  "author": "Dilshan",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
