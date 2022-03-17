@@ -7,23 +7,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./main.css">
     <title>Home</title>
+    <script
+            src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+            defer
+    ></script>
 </head>
-<body>
+<body class="pt-5" x-data="{menu:false}">
 
-<header>
-    <div class="flex w-full items-center bg-white justify-between">
-        <svg class="w-20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><path d="M6.547,3.125v6.008c0,0,2.117,0,3.25-0.086c0.891-0.156,1.055-0.242,1.219-1.133l0.328-1.305h0.969l-0.164,2.852 l0.086,2.922h-0.977l-0.242-1.141c-0.242-0.812-0.57-0.977-1.219-1.055c-0.812-0.086-3.25-0.086-3.25-0.086v5.039 c0,0.969,0.492,1.383,1.625,1.383h3.414c1.055,0,2.109-0.086,2.766-1.625l0.883-1.953h0.82c-0.086,0.406-0.492,3.984-0.57,4.789 c0,0-3.086-0.078-4.383-0.078H5.25l-3.492,0.078v-0.883l1.133-0.25c0.82-0.164,1.062-0.406,1.062-1.055 c0,0,0.086-2.195,0.086-5.852c0-3.648-0.086-5.844-0.086-5.844c0-0.727-0.242-0.891-1.062-1.055L1.758,2.555V1.664l3.414,0.07h6.5 c1.297,0,3.484-0.234,3.484-0.234s-0.078,1.375-0.164,4.625h-0.891l-0.328-1.141c-0.32-1.461-0.805-2.188-1.703-2.188H6.961 C6.547,2.797,6.547,2.875,6.547,3.125z M19.703,3.766h0.977V7.18l3.336-0.164l-0.164,1.547l-3.25-0.25v6.016 c0,1.703,0.57,2.359,1.547,2.359c0.883,0,1.539-0.492,1.781-0.898l0.484,0.57c-0.484,1.133-1.859,1.703-3.164,1.703 c-1.617,0-2.93-0.969-2.93-2.836V8.398h-1.938V7.586C18.008,7.422,19.219,6.445,19.703,3.766z M26.695,14.242l0.648,1.547 c0.242,0.648,0.812,1.305,2.109,1.305c1.383,0,1.953-0.734,1.953-1.625c0-2.766-5.445-1.953-5.445-5.688c0-2.109,1.703-3.094,3.898-3.094c0.977,0,2.438,0.164,3.172,0.492c-0.164,0.812-0.25,1.867-0.25,2.68l-0.805,0.078l-0.57-1.625 c-0.164-0.398-0.82-0.727-1.625-0.727c-0.977,0-1.953,0.406-1.953,1.461c0,2.516,5.609,1.953,5.609,5.688c0,2.117-1.867,3.25-4.148,3.25c-1.703,0-3.414-0.656-3.414-0.656c0.164-0.969,0.086-2.023,0-3.086H26.695z M33.031,22.039 c0.242-0.891,0.406-2.023,0.57-3.086l0.891-0.078l0.328,1.703c0.078,0.406,0.32,0.734,0.969,0.734c1.055,0,2.438-0.648,3.742-2.922 c-0.578-1.383-2.281-5.844-3.828-9.258c-0.406-0.898-0.484-0.977-1.047-1.141l-0.414-0.156v-0.82l2.445,0.086l3-0.164V7.75 l-0.734,0.164c-0.57,0.078-0.805,0.398-0.805,0.727c0,0.086,0,0.164,0.078,0.328c0.156,0.492,1.461,4.141,2.438,6.578c0.805-1.703,2.352-5.523,2.594-6.172c0.086-0.328,0.164-0.406,0.164-0.648c0-0.414-0.242-0.656-0.805-0.812L42.039,7.75V6.938 l2.281,0.078l2.109-0.078V7.75l-0.406,0.32c-0.812,0.328-0.898,0.406-1.219,1.062l-3.57,8.359 c-2.117,4.797-4.312,5.203-5.852,5.203C34.406,22.695,33.672,22.445,33.031,22.039z"></path></svg>
-        <div class="w-9/12 relative px-4 group">
+<header class="bg-white shadow-md p-2">
+    <div class="flex container mx-auto w-full items-center bg-white justify-between">
+        <svg class="w-20 text-orange-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 24" aria-hidden="true" focusable="false"><path d="M6.547,3.125v6.008c0,0,2.117,0,3.25-0.086c0.891-0.156,1.055-0.242,1.219-1.133l0.328-1.305h0.969l-0.164,2.852 l0.086,2.922h-0.977l-0.242-1.141c-0.242-0.812-0.57-0.977-1.219-1.055c-0.812-0.086-3.25-0.086-3.25-0.086v5.039 c0,0.969,0.492,1.383,1.625,1.383h3.414c1.055,0,2.109-0.086,2.766-1.625l0.883-1.953h0.82c-0.086,0.406-0.492,3.984-0.57,4.789 c0,0-3.086-0.078-4.383-0.078H5.25l-3.492,0.078v-0.883l1.133-0.25c0.82-0.164,1.062-0.406,1.062-1.055 c0,0,0.086-2.195,0.086-5.852c0-3.648-0.086-5.844-0.086-5.844c0-0.727-0.242-0.891-1.062-1.055L1.758,2.555V1.664l3.414,0.07h6.5 c1.297,0,3.484-0.234,3.484-0.234s-0.078,1.375-0.164,4.625h-0.891l-0.328-1.141c-0.32-1.461-0.805-2.188-1.703-2.188H6.961 C6.547,2.797,6.547,2.875,6.547,3.125z M19.703,3.766h0.977V7.18l3.336-0.164l-0.164,1.547l-3.25-0.25v6.016 c0,1.703,0.57,2.359,1.547,2.359c0.883,0,1.539-0.492,1.781-0.898l0.484,0.57c-0.484,1.133-1.859,1.703-3.164,1.703 c-1.617,0-2.93-0.969-2.93-2.836V8.398h-1.938V7.586C18.008,7.422,19.219,6.445,19.703,3.766z M26.695,14.242l0.648,1.547 c0.242,0.648,0.812,1.305,2.109,1.305c1.383,0,1.953-0.734,1.953-1.625c0-2.766-5.445-1.953-5.445-5.688c0-2.109,1.703-3.094,3.898-3.094c0.977,0,2.438,0.164,3.172,0.492c-0.164,0.812-0.25,1.867-0.25,2.68l-0.805,0.078l-0.57-1.625 c-0.164-0.398-0.82-0.727-1.625-0.727c-0.977,0-1.953,0.406-1.953,1.461c0,2.516,5.609,1.953,5.609,5.688c0,2.117-1.867,3.25-4.148,3.25c-1.703,0-3.414-0.656-3.414-0.656c0.164-0.969,0.086-2.023,0-3.086H26.695z M33.031,22.039 c0.242-0.891,0.406-2.023,0.57-3.086l0.891-0.078l0.328,1.703c0.078,0.406,0.32,0.734,0.969,0.734c1.055,0,2.438-0.648,3.742-2.922 c-0.578-1.383-2.281-5.844-3.828-9.258c-0.406-0.898-0.484-0.977-1.047-1.141l-0.414-0.156v-0.82l2.445,0.086l3-0.164V7.75 l-0.734,0.164c-0.57,0.078-0.805,0.398-0.805,0.727c0,0.086,0,0.164,0.078,0.328c0.156,0.492,1.461,4.141,2.438,6.578c0.805-1.703,2.352-5.523,2.594-6.172c0.086-0.328,0.164-0.406,0.164-0.648c0-0.414-0.242-0.656-0.805-0.812L42.039,7.75V6.938 l2.281,0.078l2.109-0.078V7.75l-0.406,0.32c-0.812,0.328-0.898,0.406-1.219,1.062l-3.57,8.359 c-2.117,4.797-4.312,5.203-5.852,5.203C34.406,22.695,33.672,22.445,33.031,22.039z"></path></svg>
+        <div class="w-9/12 md:block hidden relative px-4">
             <form action="">
-                <input type="search" placeholder="Search for anything" class="border p-2 border-black border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
-                <button class="absolute right-4 top-0 w-16 rounded-r-full group-focus:bg-blue-500   h-full">
-                    <svg class="text-black w-6 h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M10,18a8,8,0,1,1,8-8A8.009,8.009,0,0,1,10,18ZM10,4a6,6,0,1,0,6,6A6.007,6.007,0,0,0,10,4Z"></path><path d="M21,22a1,1,0,0,1-.707-0.293l-4-4a1,1,0,0,1,1.414-1.414l4,4A1,1,0,0,1,21,22Z"></path></svg>
+                <input type="search" placeholder="Search for anything" class="peer border p-2 px-4 bg-gray-100 border-black border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
+                <button class="absolute peer-focus:bg-black  peer-focus:text-white ease-in duration-300 text-black  right-4 top-0 w-16 rounded-r-full    h-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="  w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
                 </button>
             </form>
 
         </div>
         <div class="flex  items-center   justify-between">
-            <a class="text-md block px-4" href="">Sign in</a>
+            <a class="text-md block px-4 whitespace-nowrap" href="">Sign in</a>
             <a class="block px-4" href="">
                 <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
             </a>
@@ -34,11 +40,469 @@
             </a>
         </div>
     </div>
+    <div class="flex container block md:hidden relative mx-auto mt-2  items-center  justify-between">
+        <button @click="menu=true">
+            <svg class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20,7H4C3.4,7,3,6.6,3,6s0.4-1,1-1h16c0.6,0,1,0.4,1,1S20.6,7,20,7z"></path><path d="M15.2,13H4c-0.6,0-1-0.4-1-1s0.4-1,1-1h11.2c0.6,0,1,0.4,1,1S15.8,13,15.2,13z"></path><path d="M20,19H4c-0.6,0-1-0.4-1-1s0.4-1,1-1h16c0.6,0,1,0.4,1,1S20.6,19,20,19z"></path></svg>
+        </button>
+        <div class="w-11/12  px-4">
+        <form action="">
+            <input type="search" placeholder="Search for anything" class="peer border p-2 px-4 bg-gray-100 border-black border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
+            <button class="absolute peer-focus:bg-black  peer-focus:text-white ease-in duration-300 text-black  right-4 top-0 w-16 rounded-r-full    h-full">
+                <svg xmlns="http://www.w3.org/2000/svg" class="  w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+        </form>
+
+    </div>
+    </div>
+    <div class="container md:flex hidden mx-auto justify-between mt-5 text-gray-500 text-sm">
+        <a href="">Jewellery & Accessories</a>
+        <a href="">Clothing & Shoes</a>
+        <a href="">Home & Living</a>
+        <a href="">Home & Living</a>
+        <a href="">Toys & Entertainment</a>
+        <a href="">Art & Collectibles</a>
+        <a href="">Craft Supplies & Tools</a>
+        <a href="">Vintage</a>
+    </div>
 </header>
 
+<!--hero section-->
 <section>
+    <div class="w-full   bg-cover bg-no-repeat bg-center" style="height:45vh;min-height:45vh;background-image: url('https://i.etsystatic.com/isbl/2ee481/41310111/isbl_3360x840.41310111_trjef4h2.jpg?version=0')">
 
+        <div class="container mx-auto relative w-full h-full">
+            <button class="absolute flex items-center bottom-5 md:left-0 left-5 bg-white px-4 py-2 rounded-full text-sm font-semibold">
+                <svg class="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                <span class="hidden md:block">Favourite Shop</span> (200)
+            </button>
+        </div>
+    </div>
 </section>
+<!--hero section-->
+
+<section>
+    <div class="container  mx-auto  py-4">
+        <!--mobile view filters -->
+        <div class="px-4 block md:hidden ">
+            <div class="w-full relative">
+                <form action="">
+                    <input type="search" placeholder="Search Items" class="peer border p-2 px-4 bg-white border-gray-200 border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
+                    <button class="absolute peer-focus:bg-black  peer-focus:text-white ease-in duration-300 text-black  right-0 top-0 w-16 rounded-r-full    h-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="  w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                </form>
+
+            </div>
+
+            <div class="flex items-center justify-between my-3 ">
+                <select  class="form-select  block rounded-full w-full  text-sm p-2 bg-gray-100 focus:bg-gray-100 border-solid border-2 border-black focus:outline-none  focus:border-primary">
+                    <option>Custom</option>
+                    <option value="">Relevance</option>
+                    <option value="">Most Recent</option>
+                    <option value="">Lowest Price</option>
+                    <option value="">Highest Price</option>
+                </select>
+                <button class="w-12 h-12 focus:bg-gray-200 rounded-full p-1 ml-2">
+                    <svg class="w-6 h-6 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M16 20.414l3.707-3.707a1 1 0 00-1.414-1.414L17 16.586V6a1 1 0 00-2 0v10.586l-1.293-1.293a1 1 0 10-1.414 1.414L16 20.414zM9 18V7.414l1.293 1.293a1 1 0 001.414-1.414L8 3.586 4.293 7.293a1 1 0 001.414 1.414L7 7.414V18a1 1 0 102 0z"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!--mobile view filters -->
+
+
+        <div class="md:flex hidden mt-2  items-center  justify-between px-3 md:pl-0">
+            <h2 class="text-xl font-semibold">Items</h2>
+            <div class="flex  mt-2  items-center  justify-between">
+                <label for="sort" class="px-2 font-semibold">Sort</label>
+                <select id="sort" class="ml-2 form-select block w-full  text-sm p-2 bg-gray-100 focus:bg-gray-100 border-solid border border-gray-200 focus:outline-none rounded focus:border-primary">
+                    <option>Custom</option>
+                    <option value="">Relevance</option>
+                    <option value="">Most Recent</option>
+                    <option value="">Lowest Price</option>
+                    <option value="">Highest Price</option>
+                </select>
+            </div>
+        </div>
+        <div class="flex items-start">
+            <!-- filters-->
+            <div class="w-80 hidden md:block">
+                <div class="w-full md:block hidden relative">
+                    <form action="">
+                        <input type="search" placeholder="Search Items" class="peer border p-2 px-4 bg-white border-gray-200 border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
+                        <button class="absolute peer-focus:bg-black  peer-focus:text-white ease-in duration-300 text-black  right-0 top-0 w-16 rounded-r-full    h-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="  w-6 h-6 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                    </form>
+
+                </div>
+                <div class="border-r-2  border-gray-300 mt-2">
+                    <div class="border-r-2 border-black  flex items-center justify-between py-3 text-gray-500  cursor-pointer  uppercase">
+                        All
+                        <span class="px-2">711</span>
+                    </div>
+                    <div class="border-b-2 border-white hover:border-black flex items-center justify-between py-3 text-gray-500  cursor-pointer  uppercase">
+                        On sale
+                        <span class="px-2">633</span>
+                    </div>
+                    <div class="border-b-2 border-white hover:border-black flex items-center justify-between py-3 text-gray-500  cursor-pointer  uppercase">
+                        Mugs
+                        <span class="px-2">192</span>
+                    </div>
+                    <div class="border-b-2 border-white hover:border-black flex items-center justify-between py-3 text-gray-500  cursor-pointer  uppercase">
+                        Valentine day mugs
+                        <span class="px-2">6</span>
+                    </div>
+
+
+
+                </div>
+                <div class="mt-5">
+                    <button class="w-full flex justify-center items-center bg-black text-white py-2 rounded-sm font-semibold text-sm">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm2 10a1 1 0 10-2 0v3a1 1 0 102 0v-3zm2-3a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm4-1a1 1 0 10-2 0v7a1 1 0 102 0V8z" clip-rule="evenodd" />
+                        </svg>
+                        Request Custom Order
+                    </button>
+
+                    <button class="w-full flex justify-center items-center border py-2 rounded-sm font-semibold text-sm mt-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
+                        </svg>
+                        Contact shop owner
+                    </button>
+                </div>
+            </div>
+            <!-- filters-->
+            <div class="w-full md:ml-3">
+                <p class="text-xl font-semibold px-3">Featured items</p>
+                <div class="grid grid-cols-1 lg:grid-cols-3  gap-2 ">
+                    <!-- product-->
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/e23950/3067452320/il_680x540.3067452320_1t8q.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <!-- product-->
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/e23950/3067452320/il_680x540.3067452320_1t8q.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/e23950/3067452320/il_680x540.3067452320_1t8q.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <p class="text-xl font-semibold mt-5 px-3">All Items</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-2 ">
+                    <!-- product-->
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <!-- product-->
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+                    <div class="bg-white p-2 group ease-in duration-300 hover:shadow-xl cursor-pointer relative">
+                        <img src="https://i.etsystatic.com/23105390/r/il/b1c1ed/3644130528/il_340x270.3644130528_epn0.jpg" class="object-cover w-full" alt="">
+                        <p class="line-clamp-1 mt-1 text-sm">Yummy Gummy Bear Iridescent Fashion Earrings Decorative Novelty Mum Sister Niece Granddaughter Birthday Christmas Gift</p>
+                        <p class="uppercase font-semibold">usd 4.28  <span class="text-green-600 text-xs "><strike>usd 4.76</strike> (10% off)</span></p>
+
+                        <button class="absolute top-5 hidden group-hover:block  ease-in duration-300 right-5 bg-white rounded-full p-1">
+                            <svg class="text-black w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,21C10.349,21,2,14.688,2,9,2,5.579,4.364,3,7.5,3A6.912,6.912,0,0,1,12,5.051,6.953,6.953,0,0,1,16.5,3C19.636,3,22,5.579,22,9,22,14.688,13.651,21,12,21ZM7.5,5C5.472,5,4,6.683,4,9c0,4.108,6.432,9.325,8,10,1.564-.657,8-5.832,8-10,0-2.317-1.472-4-3.5-4-1.979,0-3.7,2.105-3.721,2.127L11.991,8.1,11.216,7.12C11.186,7.083,9.5,5,7.5,5Z"></path></svg>
+                        </button>
+                    </div>
+
+                </div>
+
+                <!-- pagination-->
+                    <span class="flex col-span-4 md:w-90 w-9/12 mx-auto md:ml-0 mt-5  justify-center md:justify-start">
+                  <nav aria-label="navigation">
+                    <ul class="inline-flex items-center gap-x-2">
+                      <li>
+                        <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200"   aria-label="Previous">
+                          <svg aria-hidden="true" class="w-6 h-6 fill-current" viewBox="0 0 20 20">
+                            <path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          1
+                        </button>
+                      </li>
+                      <li>
+                          <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          2
+                        </button>
+                      </li>
+                      <li>
+                          <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          3
+                        </button>
+                      </li>
+                      <li>
+                          <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          4
+                          </button>
+                      </li>
+                      <li>
+                        <span class="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                          <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          8
+                        </button>
+                      </li>
+                      <li>
+                          <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200">
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button class="p-1 md:p-3 w-8 md:w-12 rounded-full focus:outline-none focus:shadow-outline-purple bg-gray-200" aria-label="Next">
+                          <svg class="w-6 h-6 fill-current" aria-hidden="true" viewBox="0 0 20 20">
+                            <path d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
+                <!-- pagination-->
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="bg-blue-200">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-full text-blue-200" fill="currentColor" viewBox="0 0 1280 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path d="M1280 30h-8.1c-5.7 0-37-10.9-37.4-10.7-2.2 1.2-17.6-.8-19.9-4.1 0 0-9.8-3.3-10.3-3.3-1.3 0-12.6 3-13 2.5-.7-.7-13.8-3.7-13.8-5.3-2.3 1.3-21.2-7.8-23.4-6.7-1-.8-2.2-1.5-3.3-2.4-1.8 1.9-3.3 3.4-4.7 4.9-2.7-.8-4.8-1.4-7.1-2.1-.5.1-1 .3-1.5.5-4 1.3-5.3 1-7.3-1.3-1.7-2.1-5.3-2.2-8.1-.8-2 1-4.6 2.6-6.5 2.3-4.5-.7-6 1.1-8.1 2.6-1.5 1.1-3.1 2.1-4.6 3.1-1.8-.8-3.5-1.2-5.3-2-.3.8-.7 1.3-.8 2-.5 0-.8 0-1.2-.1V3.5c-2 .8-3.5 1.2-4.8 1.8-1.3-.8-2.3-1.6-3.5-2.4-5.1 1.2-10.1 2-15.3.1-.8-.3-2.2-.3-3-.1-1.2.3-2.2 1-3.3 1.6-1.2-.3-2.3-.8-3.8-1.1-1.7 1.1-3 2.9-6.5 1.6-.8-.3-2.3.1-3.5.3-4 .8-7.8 1.4-11.9 2-1.5.2-3-.2-4.7-.3-1-.1-1.8-.2-2.8-.2-6-.3-11.8 2.3-17.8.1-.5-.2-1.3-.2-1.8-.1-3.8 1.6-8.3 1.2-12.5 1.3-1 0-2.2.5-3.1.9-1.8.8-9.5 1.5-11.5 1.1-4.5-.8-8.1-.3-10.1 2.3-12.8-1.6-12.8-1.6-17.1.9-2.3-.4-6-1.6-7.1-1.1-4.7 2.4-7 .2-9.8-1.4-5 1.1-10.8-.8-15.8 1.4-7.3-2.7-14.9-2.7-22.9-.2-5-3.7-9.6-3.8-13.8 0-.3-1.3-.7-2.5-1-3.8-3.3.8-6.1 1.1-8.6 1.8-2.7.7-6 2.3-7.5 1.9-4.2-1.3-5.3 1.8-9 1.4-1-.9-2.3-2.2-4-3.5-1.3.3-2.8.7-4 1-3.5 1.1-6.8 2-10.3 0-.5-.3-1.8-.2-2.8-.1-2.5.2-4.8.7-7.5.9-.8.9-1.7 1.9-2.3 2.9-8.5-1.1-16.4-2.6-24.7-.4-.3.1-1.2-.1-1.7-.3-2.3-1.2-3.7-.3-5.1.8-1.2.7-2.7 1.8-4 1.8-7.3.2-14.8-.4-22.1.3-3 .3-6.8-.3-9 .7-3.3 1.5-6 .9-9.1.5-2.7-.4-5-.9-7.1-2.1-2-1-4.3-.5-4.6 1.1-.3 1.5-1.8 2.3-3.7 2.1-3.3-.8-6.8-.3-10-1.8-4.8-2.1-10.6-2.7-16.3-.7-1.7.7-3.3 1-5 1.6-.3.1-.8.1-1.5.1-1.2-.7-2.3-1.2-3.5-1.9-2 1.8-4.6 1.8-7.1.9-2.8-.8-5.6-1.3-8.8-.9-2.7.3-5.5.5-8.3.7-2 .1-4.5.8-5.8-.9-.2-.3-1.5-.4-2.2-.3-3.7.7-7.3 1.5-11 2.2-.2-.3-.5-.5-.5-.7-.2-.3-.2-.8-.2-.8-1.8.5-3.7 1.2-5.6 1.4-1.8.2-4.7-.7-5.8-.1-3.8 1.9-8.1 1.2-12.3 1.9-2.2-2.5-2.2-2.5-5.8-.9-.7.3-1.5.5-2.3.5-3-.1-6.1-.2-9.1-.5-2.7-.3-5.6-.5-7.6-1.4s-3.8-1.3-6.1-1.2c-4.6.2-9.3.3-13.9.5-4.3.2-8.6.4-14.3.8-1.7-.5-4.7-1.2-7.5-2.2-3.7-1.4-7.1-1.4-10.8.1-1.7.7-4.5 1.6-5.5 1.2-3.3-1.4-1.7 1.3-3 1.1-1.8-.3-3.7-.9-5.1-.7-3.7.4-7.1-.2-10.8-.1-5 .1-10 0-11.6 4.1-5-2.4-9.1-1-13 .5-1.3-.8-2.2-1.4-2.8-1.9-1.7.5-3 1.3-4.2 1.1-2.7-.3-5-1.1-7.3-1.8-1 .4-2 1-3 1.1-5.1.4-10.3.4-15.3.9-2 .2-5-.5-6.6 1.1-.3.3-2.8.4-3.3 0-2.2-1.9-5.1-1.2-8-1-3.3.3-6.6.5-9.8-.7-1.5-.5-4-.8-5.3-.2-4.6 1.9-9.5 2.6-14.9 3.3-5.6.8-9.8-.5-13.9-2.2-1.7 1-3.3 1.6-5.5.4-4.8-3-10.1-2.1-15.6-.7-2.8-.8-5.5-3.3-9.6-1.2-5.6-.8-11.1-.7-16.4 1-.7.2-2 .1-2.3-.2-1.7-1-3.5-1.8-6-1.6-1.2-2.5-4-.9-6.1-.8-2.5 0-5.1 1-7.1.5-2.5-.7-5-.4-7.3-.8-2.8-.4-6 .8-9 .8-5.3.3-10 1.4-13.9 3.6-.8.4-1.7.9-2.5.9-3.8.3-7.6.7-11.5.4-3.7-.3-7.3-.7-11.1-.1-1 .1-2.3-.5-3.3-.9-2.5-1-4.8-1.9-8.1-1.1-2.2.4-4.2 0-3.8-1.8-2.3.1-5 .8-7.1.3-2-.4-3-.9-4.5.5-.7.5-3.2.1-4.6.5-4.2.9-8.1 2.4-12.3 3-2.2.3-5.5.3-7.5-1.3-3.5-2.6-5.3-2.4-11-.9-1.3.3-2.8.8-4.3.9-3.3.2-6.8.3-10.8.5-2-2.9-6-5.2-11.5-7v3.1c-4.5-3.8-10.8-3-16.1-4.4-4.5 1.8-9 3.4-14.6 5.5-5-1-9.6-3.1-15.3-1.2-1 .3-3.2.1-4-.4-3.2-1.9-7.5-1.9-11-3.2-4.2-1.6-8.8-2.9-13.3-4.2-1.2-.3-11.8 2.4-13 2.4-6.6 0-20.3 11.5-25.6 9.8-6.1-2-13 .2-20.1-1-8.1 2.3-15.3 7.2-19.8 7.7H0M172.9 20c.1 0 .3 0 0 0z"></path></svg>
+        <div class="w-full h-full  py-4 pb-12 bg-blue-200">
+            <div class="container mx-auto px-4">
+                <p class="text-center">Yes! Send me exclusive offers, unique gift ideas, and personalised tips for shopping and selling on Etsy.</p>
+                <div class="w-full md:w-3/4 lg:w-2/4 relative mt-5 mx-auto">
+                    <form action="">
+                        <input type="email" placeholder="Enter Your Email" class="peer border p-2 px-4 bg-white border-gray-200 border-2 rounded-full w-full shadow-sm placeholder-slate-400 focus:outline-none focus:border-black focus:ring-1 focus:ring-black disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 disabled:shadow-none invalid:border-red-500 invalid:text-red-600 ">
+                        <button class="absolute peer-focus:bg-black  peer-focus:text-white ease-in duration-300 text-black  right-0 top-0 w-32 rounded-r-full    h-full">
+                           Subscribe
+                        </button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-full text-indigo-400 rotate-180" fill="currentColor" viewBox="0 0 1400 48" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><path d="M839 47l7-1 4-1 2 1h4l3-1 3-1 2 1 1-1 8-1 2 1h4l5-1 2-1h5l2-1 1 1h6l2-1h9l2-1h4l3-1h27v1h10l1 1h3l3-1 1 1h11l6 2v-1h4l1-1h10l2 1h7l2 1h3l2 1h2l1-1h6v1h2l1-1 1 1h1l3 1h7l1 1h6l1-1h3l1 1 5-1h17l4-1h4l3 1h2l1 1h19l2-1h5v1l1-1h2l1 1h9l1-1 1 1 4-1h12l1-1h4l1-1h2l3-1h5v-1h11l1 1h6l2 1h3l1-1 2-1h1l2-1h5l2-1 2 1h2l2 1h5l1 1h2l2 1h1l1-2 1-1 2-1h10l2 1h6l1 1h2l1-2 2-1 1-1 2-1h12l1 1h19l1-1h6l1-1 3 1h7l2 2 1 1 7-1 1-1 2-1h4l2-1 1-1h6l1-1 2 1 3-1h9l1-1h2l2-1h2l1-1h1l4-1 3 1h1l1-1h2l1-1 2-1h2l2-1v-1h12l3-1h2l2-1h2l3 1 1-1 1-1h14V0H0v2h2v1-1h10l1 1 2-1h3l1 1h1V2h4l2 1v1l1-1h1l1 1V3l4 1h4l1 1h2l1-1h-1l1-1 1 1 2 1h1l2-1h7l2 1h9l2 1h3l1-1h4l2 1 2 1 2-1h8l1-1 1 1h4l2 1 3-1h10l1 1h3l3 1h1V7l2 1h4l1 1h1l1-1h5l3 1h2l1-1 1 1 1-1 2 1h5l1 1h1V8h1l2 1 1 1h4-1l1-1h1l2 1h2l1-1h1l3 1h20v1-1l1 1h2l2 1h2l2 1 2 1h6l1-1h4l1-1h2l5-1 3 1h9l1-1h2l1-1h4v1h3l4-2 3-1h2l1-1h6l8 1 3 1h3l2 1 1-1h1l2-1h9l4-1 6-2h6l2-1h7l5-1h1l1-1h15l1 1 2-1 2 1h2l1-1h1v1h1l6 1h2l1-1h4l2-1 4 1h5l2 1h1l1-1h3v1h2l3 1h5l1-1 1 1 1-1 2 1h6l2 1 3 1h1l2-1 2 1h8l2-1 2 1h4l2-1 2 1h4l1-1h9l3-1h4l1 1h4l2 1h18l3-1h4l1 1 1-1h2l1 1h7l2-1h1l1 1 4-1h11l2-1h2V4l1 1 4 1h1l2 1v1l4 1 4 1 3-1-1 1h2l1 1h2l-1 1h2l3 1 5 1 6 1 4 1 2 2 4-1h3l4 2 2-1h9l1 1h1l1-1 1 2 5-1h2l3-1 4 2 3 1 5 1 3-1 2 2 1 1 1 1h2l1 1 7 2h1l1 1h3l4 3 1-1 4 1 3 1h4l3 1 1 1h4l2 2h3l3 3h2l2 1h2l5 1 1-1 3 1 4 2v1l7-1-1 1h11l5 2h3l2-1v-2l2-1h9l3-2 4 1h5l3-1h5l5 1 1 1 2-1h5l2 1h4l4 1h4l2-1 4 2h1l2-1 2 1 1-2 1 1 2-1 1 1h15v1l3-1h1l3-1 1 1 1-1h2l6 2 1-1 3 1h3l3 1h3l8 2 5-1v1l2-1h1z"></path></svg>
+        <div class="w-full h-full  py-4 bg-indigo-400">
+            <div class="container mx-auto flex justify-center items-center px-4">
+
+                    <span class=" mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 96 96" aria-hidden="true" focusable="false">
+                          <path d="M60.1 38H49v11h-2V38H35.9c1.931 9.368 6.626 17 12.1 17 5.474 0 10.171-7.632 12.1-17zm-25.145-9.5c-.003 2.511.19 5.019.577 7.5H47V18.522l-10.925.238a41.683 41.683 0 00-1.12 9.74zM47 2.31c-4.1 1.24-8.18 7.168-10.38 14.437L47 16.52V2.31z"></path>
+                          <path d="M57.52 9.45l1.784-.9a31.775 31.775 0 012.558 7.65l9.117-.2.042 2-8.78.19c.55 3.41.818 6.857.8 10.31a50.836 50.836 0 01-.54 7.5H72v2h-9.846c-1.6 8.2-5.244 15.053-9.862 17.754C66.834 54.079 76 43.793 76 28.589c0-8.962-2.958-16.353-8.554-21.373A25.424 25.424 0 0049 1.04v15.438l10.83-.236a29.32 29.32 0 00-2.31-6.791zM43.51 55.643c-4.525-2.78-8.086-9.564-9.665-17.643H24v-2h9.5a50.84 50.84 0 01-.549-7.5 43.776 43.776 0 011.075-9.7l-9.009.2-.042-2 9.562-.208c1.89-6.667 5.317-12.436 9.432-15.143C29.71 4.412 20 15.13 20 28.589a27.636 27.636 0 0023.51 27.054z"></path>
+                          <path d="M61.045 28.5a60.27 60.27 0 00-.818-10.265L49 18.479v17.52h11.468c.388-2.48.58-4.988.577-7.5zM91.7 60c-2.182 4.525-5.734 8.62-10.832 13.719l-1.414-1.414c6.6-6.6 10.511-11.424 12.08-17.7.072-.415.137-.832.215-1.278.607-3.48.262-5.951-1.027-6.068-.72-.066-1.559.68-1.947 2.3a30.158 30.158 0 01-2.454 8.148c-1.78 4.663-8.575 11.048-8.865 11.318l-1.366-1.461c.068-.063 6.8-6.391 8.381-10.62l.061-.133a30.644 30.644 0 002.526-9.148c.11-1.886.095-6.433-1.793-6.552-2.085-.132-2.537 3.505-3.367 7.379-.259 1.21-.89 3.456-1.153 4.243a1.55 1.55 0 01-.09.177c-1.386 4.053-5.32 7.859-5.515 8.045-2.984 2.983-9.707 9.74-9.707 9.74L64.01 69.3s6.726-6.761 9.727-9.761a28.158 28.158 0 003.064-3.6c.5-.788 1.452-2.646.55-3.572-1.148-1.178-3.287-.648-6.08.748-1.98.992-11.21 7.08-15.384 13.34-1.99 2.985-2.772 8.839-3.042 14.2l13.18 2.724 6.8 1.359a8.92 8.92 0 011-.778c7.075-4.74 14.663-11.833 17.317-16.54 3.566-6.32 1.988-7.52.558-7.42zM52.774 82.673l-.77 10.252 1.993.15.595-7.913 10.616 2.123 3.765.778L70.02 93.2l1.96-.4-.885-4.338 2.592.518.392-1.96-8.447-1.69-12.858-2.657zm-29.242 2.055l6.77-1.354 13.206-2.73c-.27-5.36-1.052-11.214-3.042-14.2-4.173-6.258-13.4-12.347-15.384-13.34-2.793-1.4-4.932-1.925-6.08-.747-.9.926.054 2.784.55 3.572a28.158 28.158 0 003.064 3.6c3 3 9.727 9.76 9.727 9.76l-1.418 1.41s-6.723-6.757-9.707-9.74c-.2-.186-4.129-3.992-5.515-8.045a1.74 1.74 0 01-.09-.177c-.263-.787-.894-3.033-1.153-4.243-.83-3.874-1.282-7.511-3.367-7.38-1.888.12-1.9 4.667-1.793 6.553a30.645 30.645 0 002.526 9.148l.061.133c1.58 4.229 8.313 10.557 8.381 10.62L18.9 69.034c-.29-.27-7.084-6.655-8.865-11.318a30.16 30.16 0 01-2.454-8.148c-.388-1.622-1.226-2.37-1.947-2.3-1.287.114-1.634 2.586-1.025 6.065.078.446.143.863.215 1.278C6.394 60.883 10.3 65.7 16.9 72.307l-1.41 1.414c-5.1-5.1-8.65-9.194-10.832-13.72-1.434-.104-3.013 1.1.553 7.42 2.654 4.706 10.238 11.8 17.321 16.529a8.92 8.92 0 011 .778zm7.175.605l-8.433 1.687.393 1.96 2.591-.518-.885 4.338 1.96.4 1.047-5.137 3.75-.775 10.631-2.126.595 7.913 1.994-.15-.77-10.252-12.873 2.66z"></path>
+                        </svg>
+                    </span>
+
+                <p class="text-center text-white border-b border-dashed "> Etsy is powered by 100% renewable electricity</p>
+            </div>
+        </div>
+        <div class="bg-blue-900 py-8">
+            <div class="container mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 text-white">
+                <div class="px-4 mb-8 md:mb-0">
+                    <p class="text-lg font-semibold mb-4">Shop</p>
+                    <a href="" class="hover:underline block py-2">Gift cards</a>
+                    <a href="" class="hover:underline block py-2">Sitemap</a>
+                    <a href="" class="hover:underline block py-2">Etsy blog</a>
+                </div>
+                <div class="px-4 mb-8 md:mb-0">
+                    <p class="text-lg font-semibold mb-4">Sell</p>
+                    <a href="" class="hover:underline block py-2">Sell on Etsy</a>
+                    <a href="" class="hover:underline block py-2">Teams</a>
+                    <a href="" class="hover:underline block py-2">Forums</a>
+                    <a href="" class="hover:underline block py-2">Affiliates</a>
+                </div>
+                <div class="px-4 mb-8 md:mb-0">
+                    <p class="text-lg font-semibold mb-4">About</p>
+                    <a href="" class="hover:underline block py-2">Etsy, Inc.</a>
+                    <a href="" class="hover:underline block py-2">Policies</a>
+                    <a href="" class="hover:underline block py-2">Investors</a>
+                    <a href="" class="hover:underline block py-2">Careers</a>
+                    <a href="" class="hover:underline block py-2">Press</a>
+                    <a href="" class="hover:underline block py-2">Impact</a>
+                    <a href="" class="hover:underline block py-2">Legal imprint</a>
+                </div>
+                <div class="px-4 mb-8 md:mb-0">
+                    <p class="text-lg font-semibold mb-4">Help</p>
+                    <a href="" class="hover:underline block py-2">Help Centre</a>
+                    <a href="" class="hover:underline block py-2">Trust and safety</a>
+                    <a href="" class="hover:underline block py-2">Privacy settings</a>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12,5.447c2.136,0,2.389,0.008,3.233,0.047c0.78,0.036,1.204,0.166,1.485,0.275c0.373,0.145,0.64,0.318,0.92,0.598 c0.28,0.28,0.453,0.546,0.598,0.92c0.11,0.282,0.24,0.706,0.275,1.485c0.038,0.844,0.047,1.097,0.047,3.233 s-0.008,2.389-0.047,3.233c-0.036,0.78-0.166,1.204-0.275,1.485c-0.145,0.373-0.318,0.64-0.598,0.92 c-0.28,0.28-0.546,0.453-0.92,0.598c-0.282,0.11-0.706,0.24-1.485,0.275c-0.843,0.038-1.096,0.047-3.233,0.047 s-2.389-0.008-3.233-0.047c-0.78-0.036-1.204-0.166-1.485-0.275c-0.373-0.145-0.64-0.318-0.92-0.598 c-0.28-0.28-0.453-0.546-0.598-0.92c-0.11-0.282-0.24-0.706-0.275-1.485c-0.038-0.844-0.047-1.097-0.047-3.233 S5.45,9.616,5.488,8.773c0.036-0.78,0.166-1.204,0.275-1.485c0.145-0.373,0.318-0.64,0.598-0.92c0.28-0.28,0.546-0.453,0.92-0.598 c0.282-0.11,0.706-0.24,1.485-0.275C9.611,5.455,9.864,5.447,12,5.447 M12,4.005c-2.173,0-2.445,0.009-3.298,0.048 C7.85,4.092,7.269,4.227,6.76,4.425C6.234,4.63,5.787,4.903,5.343,5.348C4.898,5.793,4.624,6.239,4.42,6.765 c-0.198,0.509-0.333,1.09-0.372,1.942C4.009,9.56,4,9.833,4,12.005c0,2.173,0.009,2.445,0.048,3.298 c0.039,0.852,0.174,1.433,0.372,1.942c0.204,0.526,0.478,0.972,0.923,1.417c0.445,0.445,0.891,0.718,1.417,0.923 c0.509,0.198,1.09,0.333,1.942,0.372c0.853,0.039,1.126,0.048,3.298,0.048s2.445-0.009,3.298-0.048 c0.852-0.039,1.433-0.174,1.942-0.372c0.526-0.204,0.972-0.478,1.417-0.923c0.445-0.445,0.718-0.891,0.923-1.417 c0.198-0.509,0.333-1.09,0.372-1.942C19.991,14.45,20,14.178,20,12.005s-0.009-2.445-0.048-3.298 c-0.039-0.852-0.174-1.433-0.372-1.942c-0.204-0.526-0.478-0.972-0.923-1.417c-0.445-0.445-0.891-0.718-1.417-0.923 c-0.509-0.198-1.09-0.333-1.942-0.372C14.445,4.014,14.173,4.005,12,4.005L12,4.005z"></path><path d="M12,7.897c-2.269,0-4.108,1.839-4.108,4.108S9.731,16.113,12,16.113s4.108-1.839,4.108-4.108S14.269,7.897,12,7.897z  M12,14.672c-1.473,0-2.667-1.194-2.667-2.667S10.527,9.339,12,9.339s2.667,1.194,2.667,2.667S13.473,14.672,12,14.672z"></path><circle cx="16.27" cy="7.735" r="0.96"></circle></svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20,5V19a1.007,1.007,0,0,1-1,1H15V13.776h2l0.336-2.3H15V9.659a0.912,0.912,0,0,1,1-1.031h1.5V6.55a11.284,11.284,0,0,0-1.641-.109c-2.2,0-3.3,1.219-3.3,3.039v1.992h-2v2.3h2V20H5a1.007,1.007,0,0,1-1-1V5A1.007,1.007,0,0,1,5,4H19A1.007,1.007,0,0,1,20,5Z"></path></svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3c-4.97 0-9 4.03-9 9 0 3.813 2.372 7.072 5.72 8.384-.08-.712-.15-1.807.03-2.585.164-.703 1.056-4.475 1.056-4.475s-.27-.54-.27-1.336c0-1.252.726-2.187 1.63-2.187.768 0 1.14.577 1.14 1.268 0 .773-.493 1.928-.746 2.998-.212.896.45 1.626 1.333 1.626 1.6 0 2.83-1.687 2.83-4.12 0-2.156-1.55-3.663-3.76-3.663-2.56 0-4.064 1.922-4.064 3.907 0 .773.297 1.603.67 2.054.073.09.083.168.06.26-.067.283-.22.895-.25 1.02-.038.165-.13.2-.3.12-1.124-.523-1.827-2.167-1.827-3.487 0-2.84 2.063-5.446 5.947-5.446 3.122 0 5.548 2.225 5.548 5.198 0 3.102-1.956 5.598-4.67 5.598-.912 0-1.77-.474-2.063-1.033l-.56 2.14c-.204.78-.753 1.76-1.12 2.358.842.26 1.737.402 2.665.402 4.97 0 9-4.03 9-9s-4.03-9-9-9"></path></svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M18.3,8.559V9.007a9.666,9.666,0,0,1-9.729,9.737,9.614,9.614,0,0,1-5.256-1.394,5.367,5.367,0,0,0,.814.057,6.906,6.906,0,0,0,4.245-1.621,3.412,3.412,0,0,1-3.186-2.379,3.339,3.339,0,0,0,1.548-.058A3.419,3.419,0,0,1,3.988,9.993V9.952a3.427,3.427,0,0,0,1.548.424A3.407,3.407,0,0,1,4,7.54a3.261,3.261,0,0,1,.465-1.662A9.729,9.729,0,0,0,11.517,9.39a3.588,3.588,0,0,1-.073-0.79,3.408,3.408,0,0,1,3.414-3.414,3.542,3.542,0,0,1,2.518,1.075,6.837,6.837,0,0,0,2.159-.831,3.391,3.391,0,0,1-1.507,1.9A6.657,6.657,0,0,0,20,6.782,6.927,6.927,0,0,1,18.3,8.559Z"></path></svg>
+                        </a>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20,12c0,5.664,0,5.664-8,5.664s-8,0-8-5.664,0-5.664,8-5.664S20,6.333,20,12Zm-5,0L10,9v6Z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+<div x-show="menu"  class="fixed w-screen h-screen bottom-0 left-0  bg-black bg-opacity-50"></div>
+<div
+        x-show="menu"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0 transform translate-y-20"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0 transform translate-y-20"
+        @click.away="menu=false"
+        @keydown.escape="menu=false"
+        class="bg-white fixed w-screen bottom-0 left-0 p-4" style="max-height: 80vh;height: 80vh"
+        >
+    <p class="font-semibold text-center text-lg">Browse Categories</p>
+    <button @click="menu=false" class="top-2 right-2 absolute hover:text-gray-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+    <div class="mt-3">
+                <a href="" >
+                    <div class="uppercase block py-2 flex items-center justify-between">
+                        <span>Jewellery & Accessories</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="" >
+                    <div class="uppercase block py-2 flex items-center justify-between">
+                        <span>Clothing & Shoes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="" >
+                    <div class="uppercase block py-2 flex items-center justify-between">
+                        <span>Jewellery & Accessories</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+                <a href="" >
+                    <div class="uppercase block py-2 flex items-center justify-between">
+                        <span>Clothing & Shoes</span>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </div>
+                </a>
+
+            </div>
+
+</div>
+
 
 </body>
 </html>
